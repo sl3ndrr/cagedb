@@ -1,0 +1,17 @@
+# .gitignore
+.env
+.env.*
+!.env.example
+
+# Local import sources and generated logs must not enter version control.
+local-data/
+*.csv
+*.xls
+*.xlsx
+*.log
+
+# Editor and operating-system noise.
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

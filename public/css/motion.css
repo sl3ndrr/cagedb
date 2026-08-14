@@ -1,0 +1,103 @@
+/* public/css/motion.css */
+.theme-switch,
+.menu-toggle,
+.site-nav a,
+.button,
+.module-card,
+.stat-card {
+  transition:
+    color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-medium) var(--ease-standard),
+    transform var(--duration-medium) var(--ease-expressive);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .theme-switch:hover,
+  .menu-toggle:hover {
+    border-color: var(--border-strong);
+    background: var(--surface-2);
+  }
+
+  .button:hover {
+    border-color: var(--accent-hover);
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 0.75rem 2rem color-mix(in srgb, var(--accent) 22%, transparent);
+  }
+
+  .button--secondary:hover {
+    border-color: var(--text-2);
+    background: var(--surface-2);
+  }
+
+  .module-card:hover,
+  .stat-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-0.25rem);
+    box-shadow: var(--shadow-1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ambient-orb--coral {
+    animation: ambient-drift-coral 18s ease-in-out infinite alternate;
+  }
+
+  .ambient-orb--violet {
+    animation: ambient-drift-violet 22s ease-in-out infinite alternate;
+  }
+
+  .feature-card::before {
+    position: absolute;
+    z-index: 2;
+    inset: 0 auto 0 -35%;
+    width: 18%;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--card-accent) 18%, transparent), transparent);
+    content: "";
+    transform: skewX(-18deg);
+    animation: card-scan 8s linear infinite;
+    pointer-events: none;
+  }
+
+  .eyebrow::before {
+    animation: signal-pulse 2.6s ease-in-out infinite;
+  }
+
+  .feature-card--loading .poster-placeholder {
+    animation: loading-breathe 1.8s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes ambient-drift-coral {
+  to { transform: translate3d(10vw, 8vh, 0) scale(1.08); }
+}
+
+@keyframes ambient-drift-violet {
+  to { transform: translate3d(-12vw, -6vh, 0) scale(0.92); }
+}
+
+@keyframes card-scan {
+  0%, 62% { transform: translateX(0) skewX(-18deg); opacity: 0; }
+  68% { opacity: 1; }
+  82%, 100% { transform: translateX(760%) skewX(-18deg); opacity: 0; }
+}
+
+@keyframes signal-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes loading-breathe {
+  to { border-color: var(--secondary); opacity: 0.72; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-orb,
+  .feature-card::before,
+  .eyebrow::before,
+  .feature-card--loading .poster-placeholder {
+    animation: none !important;
+  }
+}
