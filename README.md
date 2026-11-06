@@ -181,3 +181,9 @@ Vor dem ersten Deployment:
 - keine automatische Genreanreicherung;
 - keine TMDB-Anbindung im MVP;
 - keine Passwort-Reset-Oberfläche im MVP; Wiederherstellung erfolgt bei Bedarf über den vertrauenswürdigen Supabase-Dashboard-Prozess.
+
+## Mitwirkende
+
+[<img src="https://avatars.githubusercontent.com/u/267193182?s=64&v=4" width="32" height="32" alt="Codex-Profilbild">](https://github.com/codex)
+
+[Codex](https://github.com/codex) hat zu diesem Projekt beigetragen.
